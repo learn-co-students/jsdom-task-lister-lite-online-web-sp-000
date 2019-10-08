@@ -1,15 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   // your code here
-  const newTaskForm = document.getElementById("create-task-form");
+  const listenForForm = document.getElementById("create-task-form");
     // attach event listener on submit
-    newTaskForm.addEventListener("submit", createNewTask);
+    listenForForm.addEventListener("submit", createNewTask);
 
 });
 
 const createNewTask = event => {
+  
+  
   event.preventDefault();
 
-  //stop form from trying to submit
+ 
   const newTaskDescription = document.getElementById("new-task-description");
   const newTask = document.createElement("li");
 
