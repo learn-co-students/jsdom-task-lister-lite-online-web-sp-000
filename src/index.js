@@ -1,13 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector('[type=submit]').addEventListener("click", function(event){
-    event.preventDefault();
+  document.getElementById('create-task-form').addEventListener("submit", function(event){
+    console.log("hit")
+    let input = document.getElementById("new-task-description").value;
+    let tasks = document.getElementById("tasks");
+    let li = document.createElement("li");
+    li.innerHTML = input;
+    tasks.append(li);
+    //li.innerHTML = input;
+    event.preventDefault(); return false;
   });
-    document.querySelectorAll('[type=submit]').addEventListenter("click", function(event){
-      let input = document.getElementById("new-task-description").value;
 
-      let tasks = document.getElementById("tasks");
-      let li = tasks.appendChild("li");
-      li.innerText = input;
-  });
 
-});
+})
