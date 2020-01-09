@@ -7,7 +7,3 @@ document.getElementById("submit").addEventListener("click", function(event) {
     list.appendChild(element)
 
 })
-
-let buttons = document.getElementsByTagName("button")
-
-buttons
