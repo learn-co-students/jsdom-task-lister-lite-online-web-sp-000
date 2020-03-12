@@ -8,12 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function submitDescription(event) {
     event.preventDefault();
-    //add li element to ul with content from newTaskDescription
     const listItem = document.createElement("li")
     listItem.innerText = newTaskDescription.value
     myToDosList.appendChild(listItem);
     return false;
   }
 
-  //on submit, add text from description form to "my todos" form
 });
