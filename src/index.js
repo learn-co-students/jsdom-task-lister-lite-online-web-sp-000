@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById('create-task-form');
   const newTaskDescription = document.getElementById('new-task-description');
-  const taskUl = document.getElementById('tasks');
-  const task = document.createElement('li');
 
   form.addEventListener("submit", function(event) {
     addNewTask();
@@ -11,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function addNewTask() {
+    const taskUl = document.getElementById('tasks');
+    const task = document.createElement('li');
     task.innerText = newTaskDescription.value;
     taskUl.appendChild(task);
   }
