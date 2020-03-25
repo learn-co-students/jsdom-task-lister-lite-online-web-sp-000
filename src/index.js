@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // your code here
-  document.getElementById("create-task-form").addEventListener("submit", function(event){
+  const taskForm = document.getElementById("create-task-form")
+  taskForm.addEventListener("submit", function(event){
     event.preventDefault()
 
     let task = document.getElementById("new-task-description").value
@@ -11,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     newTask.innerHTML = task
     list.appendChild(newTask)
     newTask.appendChild(button)
-    document.getElementById('new-task-description').value=''
+    taskForm.reset()
+    
 
     button.innerHTML = "X"
     button.addEventListener("click", function(event){
