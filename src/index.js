@@ -6,8 +6,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let task = document.getElementById("new-task-description").value
     let list = document.getElementById("list")
     let newTask = document.createElement("li")
+    let button = document.createElement("button")
 
     newTask.innerHTML = task
     list.appendChild(newTask)
+    newTask.appendChild(button)
+    document.getElementById('new-task-description').value=''
+
+    button.innerHTML = "X"
+    button.addEventListener("click", function(event){
+      event.target.parentNode.remove()
+    })
   })
 });
+
+
