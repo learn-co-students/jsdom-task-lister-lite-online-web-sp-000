@@ -1,0 +1,7 @@
+<div id="myDropdown" class="dropdown-content">
+  <ul>
+    <li id="high-priority" onclick="changeTextColor('high-priority')">High</li>
+    <li id="moderate-proirity" onclick="changeTextColor('moderate-proirity')">Moderate</li>
+    <li id="low-priority" onclick="changeTextColor('low-priority')">Low</li>
+  </ul>
+</div>

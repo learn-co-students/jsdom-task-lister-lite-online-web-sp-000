@@ -4,6 +4,81 @@
   <meta charset="UTF-8">
   <title>Flatiron Task Lister</title>
   <link rel="stylesheet" href="./style.css">
+  <style type="text/css">
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+li {
+
+    display: list-item;
+    text-align: -webkit-match-parent;
+    list-style-type: none;
+    padding: 5px;
+  }
+
+.button {
+  margin-left: 10px;
+}
+
+  table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+  </style>
+
+
+
 </head>
 <body>
   <div id="main-content">
@@ -15,10 +90,21 @@
       <input type="submit" value="Create New Task">
     </form>
 
-    <div id="list">
+    <!-- <div id="list">
       <h2>My Todos</h2>
       <ul id="tasks">
+
       </ul>
+    </div> -->
+    <div >
+      <table id="list">
+        <tr>
+          <th>To-Dos</th>
+          <th>Delete</th>
+          <th>Update</th>
+          <th>Prioritize</th>
+        </tr>
+      </table>
     </div>
 
     <script src="./src/index.js"></script>
