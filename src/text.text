@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    addItemToList();
-
+    input = addItemToList();
+    input.value = '';
   });
 
 
@@ -18,16 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let trId = Math.random().toString(36).substring(7);
     tr.id = trId;
 
-    if (input.value === ''){
-      alert('Please try again: text is empty!');
-    }else{
-      table.appendChild(addTextToRow(tr, input));
-      table.appendChild(addDeleteToRow(tr));
-      table.appendChild(addUpdateToRow(tr));
-      table.appendChild(prioritize(tr));
-      input.value = '';
-    }
+    table.appendChild(addTextToRow(tr, input));
+    table.appendChild(addDeleteToRow(tr));
+    table.appendChild(addUpdateToRow(tr));
+    table.appendChild(prioritize(tr));
 
+    return input;
   }
 
   function addTextToRow(tr, input){
@@ -116,90 +112,41 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function prioritize(tr){
-    //priority button
     let priority = document.createElement("button");
-    // priority.className = 'button';
-    priority.className = 'dropdown';
+    priority.className = 'button';
     priority.innerText = 'Urgency';
-
     let tdPriority = document.createElement("td");
     let tdPriorityId = Math.random().toString(36).substring(7);
     tdPriority.id = tdPriorityId;
+    priority.appendChild(document.getElementById("myDropdown"));
 
 
-    //dropdown div
-    let dropDownDiv = document.createElement('div');
-    dropDownDiv.className = 'dropdown-content';
-    let dropDownDivId = Math.random().toString(36).substring(7);
-    dropDownDiv.id = dropDownDivId;
-
-    priority.appendChild(buildDropDownMenu(dropDownDiv));
+    priority.onclick = function(){
+      dropDownMenu(tr);
+    }
     tdPriority.appendChild(priority);
     tr.appendChild(tdPriority);
-
     return tr;
   }
 
-function changeTextColor(id, priority) {
-  let el = document.getElementById(id).closest('tr').firstChild;
-
-    switch(priority) {
-    case 'high-priority':
-      el.style.backgroundColor = "red";
-      break;
-    case 'moderate-proirity':
-      el.style.backgroundColor = "yellow";
-      break;
-    case 'low-priority':
-      el.style.backgroundColor = "green";
-      break;
-    default:
-      alert("element not found!");
+  function dropDownMenu(tr) {
+    document.getElementById("myDropdown").classList.toggle("show");
+    return tr;
 
   }
-}
 
-function buildDropDownMenu(dropDownDiv){
-
-  //Build ul
-  let dropDownUl = document.createElement('ul');
-
-  //Build li(s)
-  let dropDownFirstLi = document.createElement('li');
-  let dropDownFirstLiId = Math.random().toString(36).substring(7);
-  dropDownFirstLi.setAttribute('id',dropDownFirstLiId);
-  dropDownFirstLi.innerHTML = "High";
-
-
-
-
-  let dropDownSecondLi = document.createElement('li');
-  let dropDownSecondLiId = Math.random().toString(36).substring(7);
-  dropDownSecondLi.setAttribute('id',dropDownSecondLiId);
-  dropDownSecondLi.innerHTML = "Moderate";
-
-  let dropDownThirdLi = document.createElement('li');
-  let dropDownThirdLiId = Math.random().toString(36).substring(7);
-  dropDownThirdLi.setAttribute('id',dropDownThirdLiId);
-  dropDownThirdLi.innerHTML = "Low";
-
-  dropDownUl.appendChild(dropDownFirstLi);
-  dropDownUl.appendChild(dropDownSecondLi);
-  dropDownUl.appendChild(dropDownThirdLi);
-  dropDownDiv.appendChild(dropDownUl);
-  dropDownFirstLi.onclick = function(){
-    changeTextColor(dropDownFirstLiId, 'high-priority');
-  };
-
-  dropDownSecondLi.onclick = function(){
-    changeTextColor(dropDownSecondLiId, 'moderate-proirity');
-  };
-
-  dropDownThirdLi.onclick = function(){
-    changeTextColor(dropDownThirdLiId, 'low-priority');
-  };
-
-  return dropDownDiv;
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.button')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
 }
 
 
