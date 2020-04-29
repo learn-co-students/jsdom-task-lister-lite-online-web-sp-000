@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ulInput = document.getElementById("tasks");
   form.addEventListener("submit", function(event) {
     event.preventDefault();
-    console.log(params);
+    console.log("event", event.target);
   });
 });
 
