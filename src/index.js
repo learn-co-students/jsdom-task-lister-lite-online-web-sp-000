@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const list = document.getElementById('tasks')
   submitform.addEventListener("submit", function(event) {
     let newTask = document.createElement("li");
-    newTask.innerText = submitform.value;
+    newTask.innerText = document.getElementById('new-task-description').value;
     list.appendChild(newTask);
     event.preventDefault();
 }, false);
