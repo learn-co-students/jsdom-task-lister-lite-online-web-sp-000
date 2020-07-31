@@ -7,9 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   taskForm.addEventListener("submit", function(e) {
     e.preventDefault();
     let task = document.createElement("li");
-    let insertLTaskList = taskList.appendChild(task)
-    task.innerHTML = newTaskDescription.value
-  }
-  )
-
+    let insertLTaskList = taskList.appendChild(task);
+    task.innerHTML = newTaskDescription.value;
+  })
 });
