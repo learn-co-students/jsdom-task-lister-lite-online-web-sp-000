@@ -22,5 +22,4 @@ const createNewTask = event => {
 
 const appendNewTask = task => {
   document.getElementById("tasks").appendChild(task);
-};
-});
+}
