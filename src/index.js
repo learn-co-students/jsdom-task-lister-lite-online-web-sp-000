@@ -16,5 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const newLi = document.createElement('li')
     newLi.innerText = newTask
     list.appendChild(newLi)
+    // reset the column once submit
+    taskForm.reset()
   })
 });
