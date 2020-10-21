@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const newTask = taskInput.value
     const list = document.querySelector("#tasks")
     const newLi = document.createElement('li')
-    newLi.innerText = newTask
+    newLi.innerText = newTask // what do you want to set the newLi to?
     list.appendChild(newLi)
   
     taskForm.reset() // reset the column once submit
