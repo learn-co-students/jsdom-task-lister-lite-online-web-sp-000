@@ -22,8 +22,6 @@ function handleOnSubmit() {
     // const submit = document.querySelector("input[type=submit]");
     const taskList = document.getElementById("tasks");
     const taskForm = document.querySelector("#create-task-form");
-    const description = document.querySelector("#new-task-description");
-    let taskIndex = 0;
     taskForm.addEventListener("submit", function(event) {
         event.preventDefault();
         const taskDescription = document.querySelector("#new-task-description").value;
@@ -31,12 +29,8 @@ function handleOnSubmit() {
         taskItem.className = "task";
         taskItem.innerText = taskDescription;
         taskList.appendChild(taskItem);
-        // taskList.innerHTML +=
-        //     `<li class="task">${description.value}</li>`;
         let removeButton = createRemoveTaskButton();
-        // document.getElementsByClassName(taskItem.className).item(taskIndex).innerHTML += removeButton;
         taskItem.innerHTML += removeButton;
-        // taskIndex += 1;
         taskForm.reset();
     }, false);
 };
