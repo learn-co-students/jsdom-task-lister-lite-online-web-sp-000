@@ -6,9 +6,6 @@ Deliverables:
 DOM after the submit button has been activated.
 */
 
-// const taskForm = document.querySelector("#create-task-form");
-// const taskList = document.querySelector("#tasks");
-
 document.addEventListener("DOMContentLoaded", () => {
     // your code here
     handleOnSubmit();
@@ -19,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function handleOnSubmit() {
-    // const submit = document.querySelector("input[type=submit]");
     const taskList = document.getElementById("tasks");
     const taskForm = document.querySelector("#create-task-form");
     taskForm.addEventListener("submit", function(event) {
@@ -33,20 +29,20 @@ function handleOnSubmit() {
         taskItem.innerHTML += removeButton;
         taskForm.reset();
     }, false);
-};
+}
 
 function createRemoveTaskButton() {
     return '<button class="remove-btn" data-action="delete">X</button>'
-};
+}
 
 function removeTaskOnClick() {
     const taskList = document.getElementById("tasks");
     taskList.addEventListener("click", deleteTask);
-};
+}
 
 function deleteTask(event) {
     const removeTarget = event.target;
     if (removeTarget.dataset.action == "delete") {
         removeTarget.parentNode.remove();
     }
-};
+}
