@@ -6,29 +6,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const newTaskPriority = document.getElementById("new-task-priority");
   
   // ul where the taks will live
-  const tasksUl = document.getElementById("tasks");
-  
-  // attach event listeners
-  createTaskForm.addEventListener("submit", createNewTask = event => {
+  const tasksUl = document.getElementById("tasks"); 
+
+
+  // Create new tasks
+  const createNewTask = event => {
     // Stop form from submitting
     event.preventDefault();
     
     const newTask = document.createElement("li");
     newTask.innerText = newTaskDescription.value;
 
-    addNewTask(newTask);
-    addTaskPriority(newTask)
+    const deleteButton = document.createElement("button");
+    deleteButton.setAttribute("data-description", newTaskDescription.value);
+    deleteButton.textContent = "Delete";
+    deleteButton.addEventListener('click', function () { newTask.remove(); });
+    
 
-    // reset the form
+    addNewTask(newTask);    
+    addTaskPriority(newTask)
+    addDeleteButton(newTask, deleteButton);
+
+    // reset the form input
     event.target.reset();
 
-  });
-
+  };
 
   const addNewTask = task => {
     tasksUl.appendChild(task);
-  }
-
+  }  
+  
   const addTaskPriority = task => {
     if (newTaskPriority.value === "High") {
       task.style.color = 'red';
@@ -36,8 +43,14 @@ document.addEventListener("DOMContentLoaded", () => {
       task.style.color = 'yellow';
     } else if (newTaskPriority.value === "Low") {
       task.style.color = 'green';
-    }
-    
+    }    
   }
+  
+  const addDeleteButton = (task, button) => {
+    task.appendChild(button);
+  }
+
+  // attach the event listener for tasks
+  createTaskForm.addEventListener("submit", createNewTask);
 
 });
