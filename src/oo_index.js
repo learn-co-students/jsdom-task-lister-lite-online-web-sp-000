@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   newTaskForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    taskList.createNewTask(newTaskDescription.value);
+    const newTask = taskList.createNewTask(newTaskDescription.value);
     // reset form
     e.target.reset();
     renderApp();
@@ -28,4 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
       renderApp();
     }
   });
+
 });
+
+
+
