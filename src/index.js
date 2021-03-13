@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     todos = document.createElement("li");
     todos.innerText = text.value;
     lists.appendChild(todos);
-    event.preventDefault(); 
   })
   
 });
