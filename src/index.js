@@ -1,3 +1,7 @@
+let form = document.querySelector('#create-task-form')
+
 document.addEventListener("DOMContentLoaded", () => {
-  // your code here
+  form.addEventListener("click", function(event){
+    event.preventDefault();
+  })
 });
